@@ -5,33 +5,33 @@ import pandas as pd
 
 
 def test_conv_encoder():
-    model = Conv1dAutoEncoder(1, 18)
+    model = Conv1dAutoEncoder(1, 100)
     tb_logger = loggers.TensorBoardLogger(f'lightning_logs', name='cae')
     trainer = Trainer(gpus=1, max_epochs=100, logger=tb_logger)
 
-    dm = TickerDataModule('..\\data\\ticker_data_preprocessed.csv', preprocessing=False, time_period=100)
+    dm = TickerDataModule('data/ticker_data_preprocessed.csv', preprocessing=False, time_period=100)
 
     trainer.fit(model, dm)
     trainer.test(model, dm)
 
 
 def test_lstm_encoder():
-    model = LSTMAutoEncoder(100, 1, embedding_dim=18)
+    model = LSTMAutoEncoder(100, 1, embedding_dim=100)
     tb_logger = loggers.TensorBoardLogger(f'lightning_logs', name='lstm')
     trainer = Trainer(gpus=1, max_epochs=100, logger=tb_logger)
 
-    dm = TickerDataModule('..\\data\\ticker_data_preprocessed.csv', batch_size=18, time_period=100, preprocessing=False)
+    dm = TickerDataModule('data/ticker_data_preprocessed.csv', batch_size=18, time_period=100, preprocessing=False)
 
     trainer.fit(model, dm)
     trainer.test(model, dm)
 
 
 def test_mlp_encoder():
-    model = MLPAutoEncoder(100, 18)
+    model = MLPAutoEncoder(100, 100)
     tb_logger = loggers.TensorBoardLogger(f'lightning_logs', name='mlp')
     trainer = Trainer(gpus=1, max_epochs=150, logger=tb_logger)
 
-    dm = TickerDataModule('..\\data\\ticker_data_preprocessed.csv',
+    dm = TickerDataModule('data/ticker_data_preprocessed.csv',
                           preprocessing=False,
                           time_period=100)
 
