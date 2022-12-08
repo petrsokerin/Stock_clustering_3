@@ -1,0 +1,13 @@
+{
+
+	"table_finance_features": "data/embeddings/table_finance_features.csv",
+	"tsfresh":"data/embeddings/tsfresh.csv",
+    
+	"autoencoder_conv":"data/embeddings/autoencoder_conv.csv",
+	"autoencoder_lstm":"data/embeddings/autoencoder_lstm.csv",
+	"autoencoder_mlp":"data/embeddings/autoencoder_mlp.csv",
+    
+	"ts2vec":"data/embeddings/ts2vec.csv",
+	"pca":"data/embeddings/pca.csv",
+	"fastica":"data/embeddings/fastica.csv"
+}
