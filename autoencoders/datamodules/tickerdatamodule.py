@@ -1,6 +1,7 @@
 import os
 from math import floor
 from typing import Optional
+from datetime import datetime
 
 import numpy as np
 import pandas as pd
@@ -16,7 +17,12 @@ class TickerDataset(Dataset):
 
     def __init__(self, data_file: str, time_period: int, preprocessing: bool):
         if os.path.exists(data_file):
+            
             self.data = pd.read_csv(data_file, index_col=[0])
+            self.data = self.data.drop(['sector'], axis=1).T
+            self.data.index = pd.to_datetime(self.data.index)
+            self.data = self.data[(self.data.index < datetime(2020, 1, 1))].T
+            
             if 'sector' in self.data.columns:
                 self.data.drop(columns=['sector'], axis=1, inplace=True)
             if preprocessing:
