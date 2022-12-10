@@ -21,7 +21,7 @@ class TickerDataset(Dataset):
             self.data = pd.read_csv(data_file, index_col=[0])
             self.data = self.data.drop(['sector'], axis=1).T
             self.data.index = pd.to_datetime(self.data.index)
-            self.data = self.data[(self.data.index < datetime(2020, 1, 1))].T
+            self.data = self.data[(self.data.index < datetime(2021, 1, 1))].T
             
             if 'sector' in self.data.columns:
                 self.data.drop(columns=['sector'], axis=1, inplace=True)

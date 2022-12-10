@@ -15,16 +15,23 @@
 	"ticker_data_preprocessed": "data/ticker_data_preprocessed.csv",
 	"features_path": "data/features.csv",
 
-	"nn_mlp_checkpoint":"autoencoders/lightning_logs/mlp/version_0/checkpoints/epoch=149-step=33900.ckpt",
-	"nn_lstm_checkpoint":"autoencoders/lightning_logs/lstm/version_0/checkpoints/epoch=99-step=20100.ckpt",
-	"nn_conv_checkpoint":"autoencoders/lightning_logs/cae/version_0/checkpoints/epoch=99-step=22600.ckpt",
-	"nn_mlp_data":"data/ticker_data_mlp.csv",
-	"nn_lstm_data":"data/ticker_data_lstm.csv",
-	"nn_conv_data":"data/ticker_data_cae.csv",
+	"nn_mlp_checkpoint_2020":"autoencoders/lightning_logs_2020/mlp/version_0/checkpoints/epoch=149-step=15450.ckpt",
+	"nn_lstm_checkpoint_2020":"autoencoders/lightning_logs_2020/lstm/version_0/checkpoints/epoch=99-step=9100.ckpt",
+	"nn_conv_checkpoint_2020":"autoencoders/lightning_logs_2020/cae/version_0/checkpoints/epoch=99-step=10300.ckpt",
+    
+	"nn_mlp_checkpoint_2021":"autoencoders/lightning_logs_2021/mlp/version_0/checkpoints/epoch=149-step=21600.ckpt",
+	"nn_lstm_checkpoint_2021":"autoencoders/lightning_logs_2021/lstm/version_0/checkpoints/epoch=99-step=12800.ckpt",
+	"nn_conv_checkpoint_2021":"autoencoders/lightning_logs_2021/cae/version_0/checkpoints/epoch=99-step=14400.ckpt",
+
 
 	"metrics_path": "results/metrics_table.csv",
 	"predictions_path": "results/prediction_table.csv",
 	"params_path": "results/params_df.csv",
 	"port_metrics_path": "results/port_metrics.csv",
-	"best_metrics_path": "results/best_metrics.csv"
+	"best_metrics_path": "results/best_metrics.csv",
+    
+    "financial_metric_path": "results/financial_metric_{}_{}_{}.csv",
+    "clust_metric_path": "results/clust_metric_{}_{}_{}.csv",
+    "port_path": "results/metrics_table_{}_{}_{}.csv"
+    
 }

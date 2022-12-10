@@ -1,13 +1,16 @@
 {
 
-	"table_finance_features": "data/embeddings/table_finance_features.csv",
-	"tsfresh":"data/embeddings/tsfresh.csv",
+	"table_finance_features": "data/embeddings_{}/table_finance_features.csv",
+	"tsfresh":"data/embeddings_{}/tsfresh.csv",
     
-	"autoencoder_conv":"data/embeddings/autoencoder_conv.csv",
-	"autoencoder_lstm":"data/embeddings/autoencoder_lstm.csv",
-	"autoencoder_mlp":"data/embeddings/autoencoder_mlp.csv",
+	"autoencoder_conv":"data/embeddings_{}/autoencoder_conv.csv",
+	"autoencoder_lstm":"data/embeddings_{}/autoencoder_lstm.csv",
+	"autoencoder_mlp":"data/embeddings_{}/autoencoder_mlp.csv",
     
-	"ts2vec":"data/embeddings/ts2vec.csv",
-	"pca":"data/embeddings/pca.csv",
-	"fastica":"data/embeddings/fastica.csv"
+	"ts2vec":"data/embeddings_{}/ts2vec.csv",
+    
+	"pca":"data/embeddings_{}/pca.csv",
+	"fastica":"data/embeddings_{}/fastica.csv",
+	"tnse":"data/embeddings_{}/tnse.csv",
+	"umap":"data/embeddings_{}/umap.csv"
 }

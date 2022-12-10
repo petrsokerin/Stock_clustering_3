@@ -94,14 +94,14 @@ def select_assets(df_clusters, df_pct, selection_method, n_save=2, **kargs):
 
 
 def get_train_test_data(df_pct,
-                        train_start_per,
+                        test_start_per,
                         window_train,
                         window_test):
     """sub function for grid serach testing, providing train-test split procedure for every period"""
 
     # slicing data train
-
-    train_finish_per = train_start_per + window_train
+    train_finish_per = test_start_per
+    train_start_per = train_finish_per - window_train
 
     train_year_start_per = train_start_per // 12
     train_month_start_per = train_start_per % 12 + 1
@@ -134,8 +134,8 @@ def backtesting_one_model(df_pct,  # df with pct_changes: columns - tick, index 
                           port_model=MarkowitzPortfolio,  # portfolio estimation function
                           window_train=24,  # size of train window in months
                           window_test=1,  # size of train window in months
-                          train_start_year=2018,  # start data year
-                          train_start_month=1,  # start data month
+                          test_start_year=2020,  # start data year
+                          test_start_month=1,  # start data month
                           test_finish_year=2022,  # end data year
                           test_finish_month=11,  # end data month
                           **kargs):
@@ -145,12 +145,12 @@ def backtesting_one_model(df_pct,  # df with pct_changes: columns - tick, index 
     weights_all = []
     return_portfolio = pd.DataFrame([])
 
-    train_start_month = train_start_year * 12 + train_start_month - 1  # indexing from 0
+    test_start_month = test_start_year * 12 + test_start_month - 1  # indexing from 0
     test_finish_month = test_finish_year * 12 + test_finish_month - 1  # indexing from 0
     train_finish_month = test_finish_month - window_train - window_test + 1
 
-    for train_start_per in range(train_start_month, train_finish_month, window_test):
-        df_train, df_test = get_train_test_data(df_pct, train_start_per, window_train, window_test)
+    for test_start_per in range(test_start_month, test_finish_month, window_test):
+        df_train, df_test = get_train_test_data(df_pct, test_start_per, window_train, window_test)
 
         mu = (((df_train + 1).prod()) ** (
                     1 / len(df_train)) - 1).values * 252  # средняя доходность за год (252 раб дня)
