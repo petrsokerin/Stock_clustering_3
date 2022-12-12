@@ -43,7 +43,7 @@ class ClusteringGridSearch:
 
         self.best_params_ = dict()
         self.best_estimator_ = None
-        self.best_score_ = - 1e-8
+        self.best_score_ = - 1e+6
 
     def fit(self, X):
         all_params = self.estimator.get_params()
@@ -215,7 +215,7 @@ def calc_metrics(port_df, df_market, riskfree_rate):
 
     # VaR(95%)
     VaR = - risk * 1.65
-    result_df['VaR(95%)'] = VaR
+    result_df['VaR'] = VaR
 
     # Drawdown and Recovery
     portfolio_value = (port_df + 1).cumprod()  # датафрейм со "стоимостью" портфеля
@@ -226,8 +226,8 @@ def calc_metrics(port_df, df_market, riskfree_rate):
         recovery.append(find_max_recovery(portfolio_value.iloc[:, i])[0])
         drawdown.append(find_max_drawdown(portfolio_value.iloc[:, i])[0])
 
-    result_df['Drawdown(%)'] = drawdown
-    result_df['Recovery(days)'] = recovery
+    result_df['Drawdown'] = drawdown
+    result_df['Recovery'] = recovery
 
     return result_df.T['port']
 

@@ -30,8 +30,9 @@
 	"port_metrics_path": "results/port_metrics.csv",
 	"best_metrics_path": "results/best_metrics.csv",
     
-    "financial_metric_path": "results/financial_metric_{}_{}_{}.csv",
-    "clust_metric_path": "results/clust_metric_{}_{}_{}.csv",
-    "port_path": "results/metrics_table_{}_{}_{}.csv"
+    "financial_metric_path": "results/financial_metric_{}_{}.csv",
+    "clust_metric_path": "results/clust_metric_{}_{}.csv",
+    "port_path": "results/metrics_table_{}_{}.pickle",
+    "weights_path": "results/weights_table_{}_{}.pickle"
     
 }
